@@ -1,0 +1,9 @@
+/**
+ *  @name:      redcore-webUI
+ *  @version:   1.0.0
+ *  @author:    redcore
+ *  @desc:      redcore 内核webUI 页面开发
+ *  @license:   ISC
+ *  @copyright: Copyright 2018 The Redcore (Beijing) Technology Co.,Ltd. All rights reserved.
+ */
+{"version":3,"sources":["login/generateHeader.js"],"names":["generateHeader","data","defaultData","title","logo","$","text","attr","Header","window","generate"],"mappings":"AAIA,SAASA,eAAeC,GACtB,IAAIC,EAAa,CACfC,MAAOF,EAAKE,OAAS,GACrBC,KAAMH,EAAKG,MAAQ,0BAGrBC,EAAE,UAAUC,KAAKJ,EAAYC,OAC7BE,EAAE,SAASE,KAAK,MAAOL,EAAYE,MAKrC,IAAII,OAAS,GACbC,OAAOD,OAASA,OAEhBA,OAAOE,SAAWV","file":"../../src/login/generateHeader.js","sourcesContent":["/**\r\n * generate Header\r\n * @param {object} data: title, logo, banner\r\n */\r\nfunction generateHeader(data) {\r\n  var defaultData ={\r\n    title: data.title || '',\r\n    logo: data.logo || './imgs/defaultLogo.png',\r\n  }\r\n\r\n  $('#title').text(defaultData.title);\r\n  $('#logo').attr('src', defaultData.logo);\r\n}\r\n\r\n\r\n\r\nvar Header = {};\r\nwindow.Header = Header;\r\n\r\nHeader.generate = generateHeader;"]}

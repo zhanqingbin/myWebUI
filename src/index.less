@@ -1,0 +1,393 @@
+// 定义变量
+@bodyBgColor: #f7f9f9;
+@bgColor: #fff;
+@foreColor: #457dff;
+@shadowColor: #ccc;
+@borderRadius: 4px;
+@borderColor: rgb(210, 227, 252);
+@posDistance: 10px;
+
+body{
+	background-color: @bodyBgColor;
+}
+p,h1,h2,h3,h4,h5,h6,ul,li{
+	margin:0;
+	padding: 0;
+}
+/* 按钮相关 */
+.rdc-btn {
+	background-color: @bgColor;
+	padding: 8px 16px;
+	color: @foreColor;
+	border-radius: @borderRadius;
+	border:1px solid rgb(218, 220, 224);
+	margin-left: 10px;
+
+	&:hover {
+		background-color: rgba(66,133,244,0.04);
+		color: @foreColor;
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
+.rdc-btn.primary {
+	background-color: @foreColor;
+	color: @bgColor;
+}
+.rdc-btn-icon {
+	padding: 0;
+	border: none;
+	width: 36px;
+	height: 36px;
+	background-color: transparent;
+	position: relative;
+
+	&:focus {
+		outline:none;
+	}
+
+	&.on {
+		.rdc-caret-arrow {
+			transform: translate(-50%, -50%) rotate(225deg);
+		}
+	}
+}
+
+/* 阴影效果 */
+.rdc-shadow{
+	width: 1px;
+	height: 1px;
+	border-radius: 50%;
+	border:none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #ddd;
+}
+.rdc-shadow.act{
+	animation-name: rdcShadowCircle;
+	animation-duration: 0.3s;
+	animation-timing-function: linear;
+	animation-fill-mode: none;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	-webkit-animation-name: rdcShadowCircle;
+	-webkit-animation-duration: 0.3s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-fill-mode: none;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-direction: normal;
+
+}
+@keyframes rdcShadowCircle{
+	1% {display: block;}
+	99% {transform: scale(36);}
+	100% {display: none; transform: scale(1);}
+}
+@-webkit-keyframes rdcShadowCircle{
+	1% {display: block;}
+	99% {display: block;transform: scale(36);}
+	100% {display: none; transform: scale(1);}
+}
+
+/* 定位相关 */
+.rdc-pos-tr{
+	top: @posDistance;
+	right: @posDistance;
+	bottom: unset;
+	left: unset;
+}
+.rdc-pos-br{
+	bottom: @posDistance;
+	right: @posDistance;
+	top: unset;
+	left: unset;
+}
+.rdc-pos-tl{
+	top: @posDistance;
+	left: @posDistance;
+	right: unset;
+	bottom: unset;
+}
+.rdc-pos-bl{
+	bottom: @posDistance;
+	left: @posDistance;
+	top: unset;
+	right: unset;
+}
+.rdc-pos-mm{
+	top:50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+/* 控制元素相关 */
+.rdc-ctl {
+	position: absolute;	
+	.rdc-pos-tr();
+}
+.rdc-ctl-br{
+	.rdc-ctl();
+	.rdc-pos-br();
+}
+
+.rdc-ctl-mm{
+	.rdc-ctl();
+	.rdc-pos-mm();
+}
+
+/* 小图标 */
+.rdc-arrow {
+	display: block;
+	width: 6px;
+	height: 6px;
+	border-left: 2px solid #aaa;
+	border-top: 2px solid #aaa;
+	transform: translate(-50%, -50%) rotate(45deg);
+	&.on{
+		transform: rotate(225deg);
+		transition: transform .1s;
+	}
+}
+
+.rdc-angle {
+	display: block;
+	width: 0;
+	height: 0;
+	border-width: 6px;
+	border-style: solid;
+	border-left-color: #555;
+
+}
+
+.rdc-caret {
+	border-color: transparent;
+	position: absolute;
+}
+.rdc-caret-arrow {
+	.rdc-caret();
+	.rdc-arrow();
+}
+.rdc-caret-angle{
+	.rdc-caret();
+	.rdc-angle();
+	.rdc-pos-mm();
+}
+
+.rdc-masker{
+	display: none;
+	position: absolute;
+	z-index: 100;
+	top:0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: rgba(0,0,0, .40);
+
+	.rdc-masker-content {
+		position: absolute;
+		background-color: #fff;
+		width: 460px;
+		border-radius: 4px;
+		padding: 20px 20px 10px;
+
+		h5 {
+			font-size: 18px;
+			color: #333;
+		}
+	}
+}
+.rdc-masker-fix{
+	.rdc-masker();
+	position: fixed;
+}
+/* 具体页面 */
+.rdc-container-user {
+	width: 660px;
+	margin: 20px auto;
+	font-size: 14px;
+
+	.rdc-item {
+		padding: 10px 0;
+		margin-bottom: 10px;
+
+		h5 {
+			color:#333;
+			line-height: 40px;
+			margin: 0;
+		}
+
+		.rdc-info {
+			padding: 20px;
+			border-radius: @borderRadius;
+			background-color: @bgColor;
+			box-shadow: 0 1px 1px 1px @shadowColor;
+
+			&.device{
+				margin-bottom: 20px;
+				.rdc-head {
+					.img {
+						width: 90px;
+					}
+				}
+				.rdc-content{
+					.rdc-form-row {
+						label {
+							width: 90px;
+						}
+					}
+				}
+			}
+
+			.rdc-head {
+				position: relative;
+				display: flex;
+				line-height: 30px;
+				margin-bottom: 20px;
+
+				.img{
+					width: 60px;
+					height: 60px;
+					margin-right: 30px;
+					position: relative;
+					border-radius: @borderRadius;
+
+					&:hover{
+						.rdc-masker{
+							display:block;
+						}
+					}
+
+					.rdc-img-head{
+						height: 100%;
+
+						img{
+							display: block;
+							margin: 8px auto 4px;
+							width: 14px;
+							height: 14px;
+							line-height: 30px;
+						}
+						p {
+							text-align: center;
+							button {
+								background-color: transparent;
+								color: #fff;
+								border:none;
+								outline: none;
+								padding: 0;
+								margin: 0;
+								font-size: 12px;
+								line-height: 30px;
+							}
+						}
+					}
+
+					img{
+						width: 100%;
+						height: 100%;
+					}
+				}
+
+				.info{
+					flex: 1;
+
+					p:only-child{
+						line-height: 60px;
+						font-weight: 400;
+					}
+
+					p{
+						color: #333;
+						font-weight: 600;
+					}
+				}
+			}
+		}
+	}
+}
+
+.rdc-content{
+	position: relative;
+
+	.rdc-form-row {
+		line-height: 40px;
+
+		label {
+			color: #666;
+			display: inline-block;
+			margin-right: 20px;
+		}
+		span {
+			display: inline-block;
+			color: #333;
+			font-weight: 600;
+		}
+	}
+
+	.rdc-ctl {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+	}
+
+	.rdc-list-row {
+		padding: 0 20px;
+		height: 48px;
+		line-height: 48px;
+		display: flex;
+		justify-content: flex-start;
+		position: relative;
+
+		i{
+			width: 14px;
+			height: 100%;
+			display: inline-block;
+			margin: 0 10px;
+		}
+		i.lock {
+			background: url(./imgs/lock_time_icon.png) center no-repeat;
+		}
+		i.change {
+			background: url(./imgs/pin_modify.png) center no-repeat;
+		}
+
+		p{ text-align:right; flex: 1}
+
+		div{
+			position: absolute;
+			width: 36px;
+			height: 36px;
+			top: 6px;
+			right: 20px;
+		}
+	}
+	.rdc-list-row + .rdc-list-row {
+		border-top: 1px solid rgba(0,0,0,0.06)
+	}
+
+	&.rdc-pop{
+		margin-top: 16px;
+		padding-bottom: 70px;
+
+		.rdc-form-row {
+			margin-bottom: 10px;
+			font-size: 14px;
+
+			label {
+				margin-left: 2em;
+				width: 100px;
+			}	
+
+			input[type="password"] {
+				background-color: #f1f3f4;
+				border:none;
+				height: 32px;
+				border-radius: 4px;
+				width: 270px;
+			}
+		}
+	}
+}

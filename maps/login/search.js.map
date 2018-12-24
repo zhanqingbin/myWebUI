@@ -1,0 +1,9 @@
+/**
+ *  @name:      redcore-webUI
+ *  @version:   1.0.0
+ *  @author:    redcore
+ *  @desc:      redcore 内核webUI 页面开发
+ *  @license:   ISC
+ *  @copyright: Copyright 2018 The Redcore (Beijing) Technology Co.,Ltd. All rights reserved.
+ */
+{"version":3,"sources":["login/search.js"],"names":["search","$searchBox","$","$searchBtn","$search","searchNow","words","window","open","on","val","e","value","which"],"mappings":"AAGA,SAASA,SACPC,WAAaC,EAAE,eACfC,WAAaD,EAAE,eACfE,QAAUF,EAAE,iBAEZ,IAAIG,EAAY,SAASC,GACrBC,OAAOC,KAAK,8BAAgCF,EAAO,UAGvDH,WAAWM,GAAG,QAAS,WAClBL,QAAQM,OACTL,EAAUD,QAAQM,SAItBN,QAAQK,GAAG,UAAW,SAASE,GAC7B,IAAIC,EAAQR,QAAQM,MACL,IAAXC,EAAEE,OAAeD,GACnBP,EAAUO","file":"../../src/login/search.js","sourcesContent":["/**\r\n * search box\r\n */\r\nfunction search() {\r\n  $searchBox = $('#search-box');\r\n  $searchBtn = $('#search-btn');\r\n  $search = $('#search-input');\r\n\r\n  var searchNow = function(words) {\r\n      window.open(\"https://www.baidu.com/s?wd=\" + words, \"_self\");\r\n  }\r\n\r\n  $searchBtn.on('click', function() {\r\n    if($search.val()) {\r\n      searchNow($search.val())\r\n    }\r\n  })\r\n\r\n  $search.on('keydown', function(e) {\r\n    var value = $search.val();\r\n    if (e.which == 13 && value) {\r\n      searchNow(value)\r\n    }\r\n  })\r\n}"]}

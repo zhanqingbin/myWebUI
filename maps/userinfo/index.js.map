@@ -1,0 +1,9 @@
+/**
+ *  @name:      redcore-webUI
+ *  @version:   1.0.0
+ *  @author:    redcore
+ *  @desc:      redcore 内核webUI 页面开发
+ *  @license:   ISC
+ *  @copyright: Copyright 2018 The Redcore (Beijing) Technology Co.,Ltd. All rights reserved.
+ */
+{"version":3,"sources":["userinfo/index.js"],"names":["$","User","ins","delegate","$this","this","hasClass","removeClass","addClass","find","setTimeout","_el","parents","siblings","slideDown","slideUp"],"mappings":"AAIAA,EAAE,WACWC,KAAKC,IAGhBF,EAAE,uBAAuBG,SAAS,gBAAiB,QAAS,WAC1D,IAAIC,EAAQJ,EAAEK,MACTD,EAAME,SAAS,MAGlBF,EAAMG,YAAY,MAFlBH,EAAMI,SAAS,MAIjBJ,EAAMK,KAAK,eAAeD,SAAS,OACnCE,WAAW,WACTN,EAAMK,KAAK,eAAeF,YAAY,QACrC,KACH,IAAII,EAAMX,EAAEK,MACRM,EAAIL,SAAS,MACfK,EAAIC,QAAQ,aAAaC,SAAS,gBAAgBC,YAElDH,EAAIC,QAAQ,aAAaC,SAAS,gBAAgBE","file":"../../src/userinfo/index.js","sourcesContent":["// Copyright 2018 The Redcore (Beijing) Technology Co.,Ltd. All rights reserved.\n// Use of this source code is governed by a BSD-style license that can be\n// found in the LICENSE file.\n\n$(function() {\n  let user = User.ins;\n\n  // 点击展示button\n  $('.rdc-container-user').delegate('.rdc-btn-icon', 'click', function() {\n    var $this = $(this)\n    if (!$this.hasClass('on')) {\n      $this.addClass('on');\n    } else {\n      $this.removeClass('on');\n    }\n    $this.find('.rdc-shadow').addClass('act');\n    setTimeout(function() {\n      $this.find('.rdc-shadow').removeClass('act')\n    }, 300)\n    let _el = $(this)\n    if (_el.hasClass('on')) {\n      _el.parents('.rdc-head').siblings('.rdc-content').slideDown();\n    } else {\n      _el.parents('.rdc-head').siblings('.rdc-content').slideUp();\n    }\n  });\n})\n"]}

@@ -1,0 +1,9 @@
+/**
+ *  @name:      redcore-webUI
+ *  @version:   1.0.0
+ *  @author:    redcore
+ *  @desc:      redcore 内核webUI 页面开发
+ *  @license:   ISC
+ *  @copyright: Copyright 2018 The Redcore (Beijing) Technology Co.,Ltd. All rights reserved.
+ */
+{"version":3,"sources":["userinfo/rdc_util.js"],"names":["Rdc","[object Object]","str","d","Date","getFullYear","getMonth","toString","padStart","getDate","getHours","getMinutes","getSeconds"],"mappings":"AAIA,MAAMA,IACJC,mBAAmBC,GACjB,IAAKA,EAAK,MAAO,GACjB,IAAIC,EAAI,IAAIC,KAAKF,GACjB,SAAUC,EAAEE,kBAAkBF,EAAEG,WAAa,GAAGC,WAAWC,SAAS,EAAG,QAAQL,EAAEM,UAAUF,WAAWC,SAAS,EAAG,QAAQL,EAAEO,WAAWH,WAAWC,SAAS,EAAG,QAAQL,EAAEQ,aAAaJ,WAAWC,SAAS,EAAG,QAAQL,EAAES,aAAaL,WAAWC,SAAS,EAAG","file":"../../src/userinfo/rdc_util.js","sourcesContent":["// Copyright 2018 The Redcore (Beijing) Technology Co.,Ltd. All rights reserved.\n// Use of this source code is governed by a BSD-style license that can be\n// found in the LICENSE file.\n\nclass Rdc {\n  static formateTime(str) {\n    if (!str) return ''\n    let d = new Date(str);\n    return `${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, '0')}-${d.getDate().toString().padStart(2, '0')} ${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}:${d.getSeconds().toString().padStart(2, '0')}`\n  }\n}\n"]}
